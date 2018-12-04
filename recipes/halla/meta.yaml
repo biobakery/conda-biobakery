@@ -1,0 +1,64 @@
+{% set name = "halla" %}
+{% set version = "0.8.17" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "b20f018a2ae91a45169c563b9032f964347144949cfbe465f2545dfe25cec8e1" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  entry_points:
+    - halla = halla.halla:main
+    - hallagram = halla.hallagram:main
+    - halladata = halla.synthetic_data:main
+    - hallascatter = halla.hallascatter:main
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy >=1.9.2
+    - scipy >=0.17.0
+    - matplotlib >=1.5.1
+    - scikit-learn >=0.14.1
+    - minepy >=1.0.0
+    - pandas >=0.18.1
+    - jenkspy >=0.1.4
+  run:
+    - python
+    - numpy >=1.9.2
+    - scipy >=0.17.0
+    - matplotlib >=1.5.1
+    - scikit-learn >=0.14.1
+    - minepy >=1.0.0
+    - pandas >=0.18.1
+    - jenkspy >=0.1.4
+
+test:
+  imports:
+    - halla
+    - halla.tests
+  commands:
+    - halla --help
+    - hallagram --help
+    - halladata --help
+    - hallascatter --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/halla
+  license: MIT
+  license_family: MIT
+  summary: 'HAllA: Hierarchically All-against-All Association Testing'
+  description: HAllA is a programmatic tool for performing multiple association testing between two or more heterogeneous datasets, each containing a mixture of discrete, binary, or continuous data.
+  doc_url: http://huttenhower.sph.harvard.edu/halla
+
+extra:
+  recipe-maintainers: 'halla-users@googlegroups.com'

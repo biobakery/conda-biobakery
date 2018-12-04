@@ -21,20 +21,20 @@ build:
     - kneaddata_build_database = kneaddata.generate_db:main
     - kneaddata_read_count_table = kneaddata.read_count_table:main
     - kneaddata_test = kneaddata.tests.kneaddata_test:main
-  script: python setup.py install  --single-version-externally-managed --record=record.txt
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
     - setuptools
+    - bowtie2 >=2.2
   run:
     - python
-    - bowtie2 >=2.2
     - trf
+    - bowtie2 >=2.2
     - fastqc
     - samtools
-    - trimmomatic
-    - openjdk
+    - java-jdk
 
 test:
   imports:

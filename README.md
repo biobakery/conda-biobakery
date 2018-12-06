@@ -16,7 +16,7 @@ $ conda config --add channels biobakery
 Now install a bioBakery package with conda.
 
 ```
-$ conda install humann2
+$ conda install -c biobakery humann2
 ```
 
 Please review the documenation for each package as some bioBakery software require databases which are

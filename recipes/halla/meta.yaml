@@ -25,13 +25,7 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy >=1.9.2
-    - scipy >=0.17.0
-    - matplotlib >=1.5.1
-    - scikit-learn >=0.14.1
-    - minepy >=1.0.0
-    - pandas >=0.18.1
-    - jenkspy >=0.1.4
+
   run:
     - python
     - numpy >=1.9.2

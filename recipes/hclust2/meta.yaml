@@ -1,0 +1,64 @@
+{% set name = "hclust2" %}
+{% set version = "1.0.0-3d589ab" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "bd3ac7e24cf47eb2e1ee46f4165987cfee2c542babcadc705aee8da3bca33438" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: 3d589ab2cb68.tar.gz
+  url: https://bitbucket.org/nsegata/hclust2/get/3d589ab2cb68.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  entry_points:
+    - humann2 = humann2.humann2:main
+    - humann2_databases = humann2.tools.humann2_databases:main
+    - humann2_config = humann2.tools.humann2_config:main
+    - humann2_join_tables = humann2.tools.join_tables:main
+    - humann2_split_table = humann2.tools.split_table:main
+    - humann2_rename_table = humann2.tools.rename_table:main
+    - humann2_renorm_table = humann2.tools.renorm_table:main
+    - humann2_regroup_table = humann2.tools.regroup_table:main
+    - humann2_infer_taxonomy = humann2.tools.infer_taxonomy:main
+    - humann2_humann1_kegg = humann2.tools.humann2_humann1_kegg:main
+    - humann2_rna_dna_norm = humann2.tools.rna_dna_norm:main
+    - humann2_strain_profiler = humann2.tools.strain_profiler:main
+    - humann2_reduce_table = humann2.tools.reduce_table:main
+    - humann2_unpack_pathways = humann2.tools.merge_abundance:main
+    - humann2_test = humann2.tests.humann2_test:main
+    - humann2_build_custom_database = humann2.tools.build_custom_database:main
+    - humann2_genefamilies_genus_level = humann2.tools.genefamilies_genus_level:main
+    - humann2_split_stratified_table = humann2.tools.split_stratified_table:main
+    - humann2_associate = humann2.tools.humann2_associate:main
+    - humann2_barplot = humann2.tools.humann2_barplot:main
+    - humann2_benchmark = humann2.tools.humann2_benchmark:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+    - scipy
+    - matplotlib
+    - pandas
+    - biopython
+    - pyqi
+
+test:
+  commands:
+    - hclust2.py --help
+
+about:
+  home: https://bitbucket.org/nsegata/hclust2
+  license: MIT
+  license_family: MIT
+  summary: 'Hclust2: A tool for plotting heatmaps'
+  description: A tool for plotting hierarchically clustered heatmaps
+  doc_url: https://bitbucket.org/nsegata/hclust2
+

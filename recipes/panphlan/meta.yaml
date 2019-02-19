@@ -1,0 +1,42 @@
+{% set name = "panphlan" %}
+{% set version = "1.2.1.3_a25bc29" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "dbeb7b726df7bdf930e865e693493d18282f22e2d416a39ba37389a30986184a" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: 'a25bc29ad4ec.tar.gz'
+  url: 'https://bitbucket.org/CibioCM/panphlan/get/a25bc29ad4ec.tar.gz'
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - bowtie2
+    - samtools
+    - numpy
+    - biopython
+
+test:
+  commands:
+    - panphlan_map.py --help
+    - panphlan_profile.py --help
+
+about:
+  home: http://segatalab.cibio.unitn.it/tools/panphlan/
+  license: MIT
+  license_family: MIT
+  summary: 'PanPhlAn - strain detection and characterization'
+  description: 'Pangenome-based Phylogenomic Analysis (PanPhlAn) is a strain-level metagenomic profiling tool for identifying the gene composition and in-vivo transcriptional activity of individual strains in metagenomic samples. PanPhlAn’s ability for strain-tracking and functional analysis of unknown pathogens makes it an efficient tool for culture-free infectious outbreak epidemiology and microbial population studies.'
+  doc_url: http://segatalab.cibio.unitn.it/tools/panphlan/
+
+extra:
+  recipe-maintainers: 'biobakery-users@googlegroups.com'

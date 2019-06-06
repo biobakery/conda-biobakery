@@ -1,0 +1,74 @@
+{% set name = "maaslin2" %}
+{% set version = "0.99.1" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "092d58dd07edaf803b0686c61003d6b67ada77fc59fa0671fcbbd74da9737b1c" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '0.99.1.tar.gz'
+  url: 'https://bitbucket.org/biobakery/maaslin2/get/0.99.1.tar.gz'
+
+build:
+  number: 0
+  # This is required to make R link correctly on Linux.
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  build:
+    - r-optparse
+    - r-lmerTest
+    - r-pscl
+    - r-pbapply
+    - r-car
+    - r-dplyr
+    - r-vegan 
+    - r-chemometrics
+    - r-ggplot2
+    - r-pheatmap
+    - r-cplm
+    - r-hash
+    - r-logging
+    - r-data.table
+    - r-MASS
+    - r-MuMIn
+    - bioconductor-edgeR
+    - bioconductor-metagenomeSeq
+  run:
+    - r-optparse
+    - r-lmerTest
+    - r-pscl
+    - r-pbapply
+    - r-car
+    - r-dplyr
+    - r-vegan 
+    - r-chemometrics
+    - r-ggplot2
+    - r-pheatmap
+    - r-cplm
+    - r-hash
+    - r-logging
+    - r-data.table
+    - r-MASS
+    - r-MuMIn
+    - bioconductor-edgeR
+    - bioconductor-metagenomeSeq
+
+test:
+  commands:
+    - $R -e "library('Maaslin2')"
+
+about:
+  home: http://huttenhower.sph.harvard.edu/maaslin2
+  license: MIT
+  license_family: MIT
+  summary: 'MaAsLin2'
+  description: 'MaAsLin is a multivariable statistical framework that finds associations between clinical metadata and potentially high-dimensional experimental data.'
+  doc_url: http://huttenhower.sph.harvard.edu/maaslin2
+
+extra:
+  recipe-maintainers: 'maaslin-users@googlegroups.com'

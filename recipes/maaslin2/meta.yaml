@@ -20,6 +20,7 @@ build:
 
 requirements:
   build:
+    - r-base
     - r-optparse
     - r-lmerTest
     - r-pscl
@@ -39,6 +40,7 @@ requirements:
     - bioconductor-edgeR
     - bioconductor-metagenomeSeq
   run:
+    - r-base
     - r-optparse
     - r-lmerTest
     - r-pscl

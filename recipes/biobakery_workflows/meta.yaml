@@ -1,0 +1,59 @@
+{% set name = "biobakery_workflows" %}
+{% set version = "0.12.1" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "d5f6f0a73e5e30d0fb5ef198296ac8ad7d63813e098b6963ee27b6f606d12042" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  entry_points:
+    - biobakery_workflows = biobakery_workflows.biobakery_workflows:main
+    - biobakery_workflows_databases = biobakery_workflows.biobakery_workflows_databases:main
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - anadama2 >=0.5.2
+  run:
+    - python
+    - anadama2 >=0.5.2
+    - kneaddata
+    - metaphlan2
+    - humann2
+    - strainphlan
+    - vsearch
+    - picrust
+    - clustalo
+    - fasttree
+
+test:
+  imports:
+    - biobakery_workflows
+    - biobakery_workflows.data
+    - biobakery_workflows.document_templates
+    - biobakery_workflows.tasks
+    - tests
+  commands:
+    - biobakery_workflows --help
+    - biobakery_workflows_databases --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/biobakery_workflows
+  license: MIT
+  license_family: MIT
+  summary: 'bioBakery workflows: A collection of meta-omic analysis workflows'
+  description: 'bioBakery workflows is a collection of workflows and tasks for executing common microbial community analyses using standardized, validated tools and parameters. Quality control and statistical summary reports are automatically generated for most data types, which include 16S amplicons, metagenomes, and metatranscriptomes. Workflows are run directly from the command line and tasks can be imported to create your own custom workflows. The workflows and tasks are built with AnADAMA2 which allows for parallel task execution locally and in a grid compute environment.'
+  doc_url: http://huttenhower.sph.harvard.edu/biobakery_workflows
+
+extra:
+  recipe-maintainers: 'biobakery-users@googlegroups.com'

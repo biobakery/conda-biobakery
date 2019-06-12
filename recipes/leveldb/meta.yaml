@@ -1,0 +1,31 @@
+{% set name = "leveldb" %}
+{% set version = "0.193" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "db71c26b53a4c9b70721069646bdd3dddc65459be32a80e2dfea2ebed0c5c641" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+about:
+  home: http://code.google.com/p/py-leveldb/
+  license: BSD License
+  license_family: BSD
+  summary: Python bindings for leveldb database library
+

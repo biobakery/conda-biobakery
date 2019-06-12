@@ -30,7 +30,6 @@ requirements:
     - kneaddata
     - metaphlan2
     - humann2
-    - strainphlan
     - vsearch
     - picrust
     - clustalo

@@ -34,9 +34,6 @@ requirements:
     - picrust
     - clustalo
     - fasttree
-    - pandoc==1.19.2
-    - texlive-core
-    - zip
 
 test:
   imports:

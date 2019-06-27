@@ -26,6 +26,7 @@ requirements:
     - cloudpickle ==0.2.1
     - pweave ==0.25
     - markdown
+    - subprocess32
   run:
     - python
     - networkx ==1.11
@@ -34,6 +35,7 @@ requirements:
     - cloudpickle ==0.2.1
     - pweave ==0.25
     - markdown
+    - subprocess32
 
 test:
   imports:

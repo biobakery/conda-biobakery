@@ -28,8 +28,8 @@ requirements:
     - python
     - anadama2 >=0.5.2
     - kneaddata
-    - metaphlan2
-    - humann2
+    - metaphlan2 <2.9
+    - humann2 <2.9
     - vsearch
     - picrust
     - clustalo

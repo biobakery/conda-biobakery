@@ -1,0 +1,51 @@
+{% set name = "lefse" %}
+{% set version = "1.0.0_dev_e3cabe9" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "9d64aac0fdfd482639a4df21fdda921aace65ce23ad61afea624138a13cea8e2" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: 'e3cabe93a0d1.tar.gz'
+  url: 'https://bitbucket.org/nsegata/lefse/get/e3cabe93a0d1.tar.gz'
+
+build:
+  number: 0
+  # This is required to make R link correctly on Linux.
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - r-base
+  run:
+    - python
+    - r-base
+    - numpy
+    - matplotlib
+    - rpy2
+    - r-survival
+    - r-mvtnorm
+    - r-modeltools
+    - r-coin
+    - r-MASS
+
+test:
+  commands:
+    - run_lefse.py --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/lefse
+  license: MIT
+  license_family: MIT
+  summary: 'LEfSe'
+  description: 'LDA Effect Size (LEfSe) (Segata et. al 2010) is An algorithm for High-Dimensional biomarker discovery and explanation that identifies genomic features (genes, pathways, or taxa) characterizing the differences between two or more biological conditions (or classes, see figure below).'
+  doc_url: http://huttenhower.sph.harvard.edu/lefse
+
+extra:
+  recipe-maintainers: 'biobakery-users@googlegroups.com'

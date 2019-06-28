@@ -1,0 +1,72 @@
+{% set name = "breadcrumbs" %}
+{% set version = "0.92" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "c03191eb5a5b51db2be63ef76030f8ffc52566d59254c983e63b46d0a520cab1" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: 'breadcrumbs-v0.92.tar.gz'
+  url: 'https://bitbucket.org/biobakery/breadcrumbs/downloads/breadcrumbs-v0.92.tar.gz'
+
+build:
+  number: 0
+  # This is required to make R link correctly on Linux.
+  rpaths:
+    - lib/R/lib/
+    - lib/
+
+requirements:
+  builda:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - matplotlib
+    - biom-format
+    - cogent
+    - mpi4py
+    - pyqi
+    - blist
+    - r-base
+    - r-vegan
+    - r-optparse
+    - r-ggplot2
+    - r-RColorBrewer
+    - bioconductor-ggtree
+    - bioconductor-Biostrings
+  run:
+    - python
+    - setuptools
+    - numpy
+    - scipy
+    - matplotlib
+    - biom-format
+    - cogent
+    - mpi4py
+    - pyqi
+    - blist
+    - r-base
+    - r-vegan
+    - r-optparse
+    - r-ggplot2
+    - r-RColorBrewer
+    - bioconductor-ggtree
+    - bioconductor-Biostrings
+
+test:
+  commands:
+    - scriptPcoa.py --help
+
+about:
+  home: https://bitbucket.org/biobakery/breadcrumbs
+  license: MIT
+  license_family: MIT
+  summary: 'Breadcrumbs'
+  description: 'Miscellaneous Huttenhower Lab scripts'
+  doc_url: https://bitbucket.org/biobakery/breadcrumbs
+
+extra:
+  recipe-maintainers: 'biobakery-users@googlegroups.com'

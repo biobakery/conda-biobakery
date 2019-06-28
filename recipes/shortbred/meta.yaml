@@ -1,0 +1,43 @@
+{% set name = "shortbred" %}
+{% set version = "0.9.3_dev_702e3ef" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "9cbe4dc1cc3b3e7c525aef400a52e0c58aae663f249dd1b72c2a6f2900ac48e4" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '702e3ef41be4.tar.gz'
+  url: 'https://bitbucket.org/biobakery/shortbred/get/702e3ef41be4.tar.gz'
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - blast
+    - muscle
+    - cd-hit
+    - numpy
+    - matplotlib
+    - biopython
+
+test:
+  commands:
+    - shortbred_quantify.py --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/shortbred
+  license: MIT
+  license_family: MIT
+  summary: 'ShortBRED: Short, Better Representative Extract Dataset'
+  description: 'ShortBRED is a system for profiling protein families of interest at very high specificity in shotgun meta`omic sequencing data.'
+  doc_url: http://huttenhower.sph.harvard.edu/shortbred
+
+extra:
+  recipe-maintainers: 'shortbred-users@googlegroups.com'

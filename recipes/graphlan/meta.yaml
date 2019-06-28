@@ -1,0 +1,41 @@
+{% set name = "graphlan" %}
+{% set version = "1.1.3" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  hg_url: https://biobakery@bitbucket.org/nsegata/graphlan
+  hg_tag: '{{ version }}'
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+    - scipy
+    - matplotlib
+    - pandas
+    - biom-format
+    - hclust2
+
+test:
+  commands:
+    - graphlan.py --help
+
+about:
+  home: http://segatalab.cibio.unitn.it/tools/graphlan
+  license: MIT
+  license_family: MIT
+  summary: 'GraphlAn'
+  description: 'GraPhlAn is a software tool for producing high-quality circular representations of taxonomic and phylogenetic trees.'
+  doc_url: http://segatalab.cibio.unitn.it/tools/graphlan
+
+extra:
+  recipe-maintainers: 'biobakery-users@googlegroups.com'

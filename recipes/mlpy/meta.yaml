@@ -1,6 +1,7 @@
 {% set name = "mlpy" %}
 {% set version = "3.5.0" %}
-{% set sha256 = "344fa75fbf9f76af72f6a346d5309613defc4d244bac13c218e509a51d68bf6a" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "344fa75fbf9f76af72f6a346d5309613defc4d244bac13c218e509a51d68bf6a" %}
 
 package:
   name: '{{ name|lower }}'
@@ -8,6 +9,7 @@ package:
 
 source:
   url: https://sourceforge.net/projects/mlpy/files/mlpy%20{{ version }}/mlpy-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
 
 build:
   number: 0

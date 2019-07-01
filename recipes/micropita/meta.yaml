@@ -1,0 +1,44 @@
+{% set name = "micropita" %}
+{% set version = "1_1_de3a6cf" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "36417afeb805f92f0c251a31a4afc4498cf5d797b71088a2176cea976ef5fbfc" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: 'micropita-8.tar.gz'
+  url: 'https://bitbucket.org/biobakery/micropita/downloads/micropita-8.tar.gz'
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+    - scipy
+    - matplotlib
+    - blist
+    - biom-format
+    - cogent
+    - mlpy
+
+test:
+  commands:
+    - MicroPITA.py --help
+
+about:
+  home: https://huttenhower.sph.harvard.edu/micropita
+  license: MIT
+  license_family: MIT
+  summary: 'MicroPITA'
+  description: 'microbiomes Picking Interesting Taxonomic Abundance'
+  doc_url: https://huttenhower.sph.harvard.edu/micropita
+
+extra:
+  recipe-maintainers: 'biobakery-users@googlegroups.com'

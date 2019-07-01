@@ -1,7 +1,7 @@
 {% set name = "humann2" %}
-{% set version = "0.11.2" %}
+{% set version = "2.8.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "e38dd7e04705f15b00159b68f4b2e9645806f83d39127e33ca08c236d4a4f86b" %}
+{% set hash_value = "577ffa6c10d4ea79e5fd12a6852822d5a5c528b10c3d8895ca652ac4b6eb7204" %}
 
 package:
   name: '{{ name|lower }}'
@@ -43,7 +43,7 @@ requirements:
     - setuptools
   run:
     - python
-    - metaphlan2 >2.6.0
+    - metaphlan2 >2.6.0,<2.9
     - bowtie2 >2.1
     - diamond >=0.8.22,<0.9.0
     - glpk

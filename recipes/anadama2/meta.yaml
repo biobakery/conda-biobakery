@@ -1,7 +1,7 @@
 {% set name = "anadama2" %}
-{% set version = "0.5.3" %}
+{% set version = "0.6.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "a1cf8216b08b8abf949de14e8e879db80fcb203b8a4926260594d0c7fc0e8b9b" %}
+{% set hash_value = "2e6bae57befee036a522ace32fb9ea9238ebb844b0e968708747be52204eb401" %}
 
 package:
   name: '{{ name|lower }}'

@@ -1,0 +1,52 @@
+{% set name = "waafle" %}
+{% set version = "0.1.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: f2932c63f34d82124dce7980d505c06e242ec4b44420afa5526a84813c94aaff
+
+build:
+  number: 0
+  entry_points:
+    - waafle_search = waafle.waafle_search:main
+    - waafle_genecaller = waafle.waafle_genecaller:main
+    - waafle_orgscorer = waafle.waafle_orgscorer:main
+    - waafle_junctions = waafle.waafle_junctions:main
+    - waafle_qc = waafle.waafle_qc:main
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - numpy >=1.13.0
+    - pip
+    - python
+  run:
+    - numpy >=1.13.0
+    - python
+    - blast
+    - bowtie2
+
+test:
+  imports:
+    - waafle
+  commands:
+    - waafle_search --help
+    - waafle_genecaller --help
+    - waafle_orgscorer --help
+    - waafle_junctions --help
+    - waafle_qc --help
+
+about:
+  home: https://huttenhower.sph.harvard.edu/waafle
+  license: MIT
+  license_family: MIT
+  summary: "WAAFLE: a Workflow to Annotate Assemblies and Find LGT Events"
+  doc_url: https://huttenhower.sph.harvard.edu/waafle 
+
+extra:
+  recipe-maintainers:
+    - waafle-users@googlegroups.com

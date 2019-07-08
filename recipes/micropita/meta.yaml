@@ -37,7 +37,7 @@ about:
   license: MIT
   license_family: MIT
   summary: 'MicroPITA'
-  description: 'microbiomes Picking Interesting Taxonomic Abundance'
+  description: 'MicroPITA: microbiomes Picking Interesting Taxonomic Abundance'
   doc_url: https://huttenhower.sph.harvard.edu/micropita
 
 extra:

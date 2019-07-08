@@ -1,5 +1,5 @@
 {% set name = "ppanini" %}
-{% set version = "0.7.4" %}
+{% set version = "0.7.3.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7e18bd2456fa5d860d57f894f6b5d7659d7be10ccc37105bf8efa27972b75b31
+  sha256: 75c1cc153fc19abe614cfbaf40deed35948abd1d0e647fc1595f02f5cb58db6c
 
 build:
   number: 0

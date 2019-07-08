@@ -45,6 +45,7 @@ about:
   license: MIT
   license_family: MIT
   summary: "WAAFLE: a Workflow to Annotate Assemblies and Find LGT Events"
+  description: "Lateral gene transfer (LGT) is an important mechanism for genome diversification in microbial communities, including the human microbiome. While methods exist to identify LGTs from sequenced isolate genomes, identifying LGTs from community metagenomes remains an open problem. To address this, we developed WAAFLE: a Workflow to Annotate Assemblies and Find LGT Events."
   doc_url: https://huttenhower.sph.harvard.edu/waafle 
 
 extra:

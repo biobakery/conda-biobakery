@@ -1,0 +1,67 @@
+{% set name = "ppanini" %}
+{% set version = "0.7.4" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 7e18bd2456fa5d860d57f894f6b5d7659d7be10ccc37105bf8efa27972b75b31
+
+build:
+  number: 0
+  entry_points:
+    - ppanini = ppanini.ppanini:_main
+    - ppanini_gene_caller = ppanini.tools.ppanini_gene_caller:main
+    - ppanini_test = ppanini.tests.ppanini_test:main
+    - ppanini_scatterplot = ppanini.tools.ppanini_scatterplot:main
+    - ppanini_barplot = ppanini.tools.ppanini_barplot:main
+    - ppanini_rocplot = ppanini.tools.ppanini_rocplot:main
+    - ppanini_rev_uniref_mapper = ppanini.tools.attach_GO:rev_load_polymap
+    - ppanini_join_tables = ppanini.tools.ppanini_join_tables:main
+    - ppanini_rename_contigs = ppanini.tools.ppanini_rename_contigs:main
+    - ppanini_infer_gene = ppanini.tools.ppanini_infer_gene:main
+    - ppanini_cluster2genes = ppanini.tools.ppanini_cluster2genes:main
+    - ppanini_press = ppanini.tools.ppanini_press:main
+    - ppanini_fasta_select = ppanini.tools.fasta_select:main
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - pip
+    - python
+  run:
+    - python
+    - numpy
+    - scipy
+    - matplotlib
+    - biopython
+    - pandas
+    - scikit-learn
+
+test:
+  imports:
+    - ppanini
+    - ppanini.tests
+    - ppanini.tests.data
+    - ppanini.tools
+  commands:
+    - ppanini --help
+    - ppanini_gene_caller --help
+    - ppanini_test --help
+    - ppanini_scatterplot --help
+    - ppanini_barplot --help
+    - ppanini_rocplot --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/ppanini
+  license: MIT
+  license_family: MIT
+  summary: "PPANINI: Prioritization and Prediction of functional Annotations for Novel and Important genes via automated data Network Integration."
+  description: "PPANINI (Prioritization and Prediction of functional Annotations for Novel and Important genes via automated data Network Integration) provides a computational pipeline to prioritize microbial genes based on their metagenomic properties (e.g. prevalence and abundance). The resulting prioritized list of gene candidates can then be analyzed further using our visualization tools."
+  doc_url: http://huttenhower.sph.harvard.edu/ppanini
+
+extra:
+  recipe-maintainers:
+    - 'ppanini-users@googlegroups.com'

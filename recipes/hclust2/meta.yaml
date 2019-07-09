@@ -23,7 +23,7 @@ requirements:
     - python
     - numpy
     - scipy
-    - matplotlib
+    - matplotlib<2.0.0
     - pandas
     - biopython
     - pyqi

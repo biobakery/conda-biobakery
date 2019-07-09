@@ -7,6 +7,7 @@ Next set up your channels so conda can find the bioBakery packages and their dep
 bioBakery conda packages rely on [bioConda](https://bioconda.github.io/) for many of their dependencies.
 
 ```
+$ conda config --add channels anaconda
 $ conda config --add channels defaults
 $ conda config --add channels bioconda
 $ conda config --add channels conda-forge

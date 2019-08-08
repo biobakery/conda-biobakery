@@ -1,15 +1,15 @@
 {% set name = "breadcrumbs" %}
-{% set version = "0.92" %}
+{% set version = "0.93" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "c03191eb5a5b51db2be63ef76030f8ffc52566d59254c983e63b46d0a520cab1" %}
+{% set hash_value = "06d7820a072f7c35fb031966bdfcdc120e27133925da0b9bec8c13b72fd1bf20" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: 'breadcrumbs-v0.92.tar.gz'
-  url: 'https://bitbucket.org/biobakery/breadcrumbs/downloads/breadcrumbs-v0.92.tar.gz'
+  fn: '0.93.tar.gz'
+  url: 'https://bitbucket.org/biobakery/breadcrumbs/get/0.93.tar.gz'
 
 build:
   number: 0

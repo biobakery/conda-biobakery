@@ -1,7 +1,7 @@
 {% set name = "humann2" %}
-{% set version = "2.8.0" %}
+{% set version = "2.8.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "577ffa6c10d4ea79e5fd12a6852822d5a5c528b10c3d8895ca652ac4b6eb7204" %}
+{% set hash_value = "1b2e646eea8de21c8ccc3bbb128e8aa57bf7e8f9901c3098cb6a0eeb10a82489" %}
 
 package:
   name: '{{ name|lower }}'
@@ -51,7 +51,6 @@ requirements:
 test:
   imports:
     - humann2
-    - humann2.maintenance
     - humann2.quantify
     - humann2.search
     - humann2.tests
@@ -60,24 +59,7 @@ test:
     - humann2 --help
     - humann2_databases --help
     - humann2_config --help
-    - humann2_join_tables --help
-    - humann2_split_table --help
-    - humann2_rename_table --help
-    - humann2_renorm_table --help
-    - humann2_regroup_table --help
-    - humann2_infer_taxonomy --help
-    - humann2_humann1_kegg --help
-    - humann2_rna_dna_norm --help
-    - humann2_strain_profiler --help
-    - humann2_reduce_table --help
-    - humann2_unpack_pathways --help
-    - humann2_test --help
-    - humann2_build_custom_database --help
-    - humann2_genefamilies_genus_level --help
-    - humann2_split_stratified_table --help
-    - humann2_associate --help
-    - humann2_barplot --help
-    - humann2_benchmark --help
+    - humann2_test
 
 about:
   home: http://huttenhower.sph.harvard.edu/humann2

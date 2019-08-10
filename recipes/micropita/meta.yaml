@@ -1,15 +1,15 @@
 {% set name = "micropita" %}
-{% set version = "1_1_de3a6cf" %}
+{% set version = "8.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "36417afeb805f92f0c251a31a4afc4498cf5d797b71088a2176cea976ef5fbfc" %}
+{% set hash_value = "4ae772bbc92da971db814a16a6bd95bc18a331c2fbbf0dc2bb0f4210983ca9a3" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: 'micropita-8.tar.gz'
-  url: 'https://bitbucket.org/biobakery/micropita/downloads/micropita-8.tar.gz'
+  fn: 'micropita-8.1.tar.gz'
+  url: 'https://bitbucket.org/biobakery/micropita/downloads/micropita-8.1.tar.gz'
 
 build:
   number: 0

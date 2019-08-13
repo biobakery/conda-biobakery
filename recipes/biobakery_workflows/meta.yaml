@@ -1,7 +1,7 @@
 {% set name = "biobakery_workflows" %}
-{% set version = "0.13.1" %}
+{% set version = "0.13.2" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "8d57bffdd3d67bef378537046f0a4c54bb855d0ae8dab8c97d027b680e9050ab" %}
+{% set hash_value = "93b5ecf1f5395149a9021516a0cc3e2a7cb2c9c4c5c1ebefc5f5822bcfdbf6b4" %}
 
 package:
   name: '{{ name|lower }}'
@@ -17,19 +17,19 @@ build:
   entry_points:
     - biobakery_workflows = biobakery_workflows.biobakery_workflows:main
     - biobakery_workflows_databases = biobakery_workflows.biobakery_workflows_databases:main
-  script: python setup.py install  --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - anadama2 >=0.5.2
+    - anadama2 =0.6.3
+    - metaphlan2 =2.7.7
   run:
     - python
-    - anadama2 >=0.5.2
+    - anadama2 =0.6.3
     - kneaddata
-    - metaphlan2 <2.9
-    - humann2 <2.9
+    - metaphlan2 =2.7.7
+    - humann2 =2.8.1
     - vsearch
     - picrust
     - clustalo

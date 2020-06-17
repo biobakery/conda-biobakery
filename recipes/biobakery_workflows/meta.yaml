@@ -1,7 +1,7 @@
 {% set name = "biobakery_workflows" %}
-{% set version = "0.15.1" %}
+{% set version = "3.0.0a4" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "4fa73ef5641b8b9531d4b8da09ed76a2d4d36c5cbe2a49ae257679cafd15fd5c" %}
+{% set hash_value = "bfd73d442ed99402e61f87774b123746b6a3161574997654cdceb4bd258a5518" %}
 
 package:
   name: '{{ name|lower }}'
@@ -14,6 +14,8 @@ source:
 
 build:
   number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
   entry_points:
     - biobakery_workflows = biobakery_workflows.biobakery_workflows:main
     - biobakery_workflows_databases = biobakery_workflows.biobakery_workflows_databases:main
@@ -22,13 +24,11 @@ requirements:
   build:
     - python
     - setuptools
-    - anadama2
   run:
     - python
     - anadama2
     - kneaddata
-    - metaphlan2
-    - humann2
+    - humann
 
 test:
   imports:

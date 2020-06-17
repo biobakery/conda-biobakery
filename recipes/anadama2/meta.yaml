@@ -20,22 +20,20 @@ requirements:
   build:
     - python
     - setuptools
-    - networkx ==1.11
-    - leveldb ==0.193
+    - networkx
+    - leveldb
     - six
-    - cloudpickle ==0.2.1
-    - pweave ==0.25
+    - cloudpickle
+    - pweave
     - markdown
-    - subprocess32
   run:
     - python
-    - networkx ==1.11
-    - leveldb ==0.193
+    - networkx
+    - leveldb
     - six
-    - cloudpickle ==0.2.1
-    - pweave ==0.25
+    - cloudpickle
+    - pweave
     - markdown
-    - subprocess32
 
 test:
   imports:

@@ -25,11 +25,11 @@ build:
 
 requirements:
   build:
-    - python
+    - python >=3
     - setuptools
     - bowtie2 >=2.2
   run:
-    - python
+    - python >=3
     - trf
     - bowtie2 >=2.2
     - fastqc

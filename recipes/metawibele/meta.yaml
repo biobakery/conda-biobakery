@@ -92,14 +92,14 @@ build:
     - metawibele_prepare_uniref_annotation = metawibele.common.prepare_uniref_annotation:main
     - metawibele_prepare_domain_databases = metawibele.common.prepare_domain_databases:main
     - metawibele_extract_uniref_maps = metawibele.common.extract_uniref_maps:main
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python
   run:
-    - python >=3.7
+    - python
     - pandas
     - scipy
     - anadama2
@@ -116,85 +116,6 @@ test:
     - metawibele.tools
   commands:
     - metawibele --help
-    - metawibele_characterize --help
-    - metawibele_prioritize --help
-    - metawibele_preprocess --help
-    - metawibele_abundance_annotator --help
-    - metawibele_antiSMASH_annotator --help
-    - metawibele_ddi_DOMINE_ExpAtlas --help
-    - metawibele_ddi_DOMINE_SIFTS --help
-    - metawibele_ddi_DOMINE_ann --help
-    - metawibele_ddi_DOMINE_protein --help
-    - metawibele_ddi_DOMINE_protein_family --help
-    - metawibele_denovo_TM_SP --help
-    - metawibele_finalize_annotation --help
-    - metawibele_interproscan_annotator --help
-    - metawibele_interproscan_pfam_protein_family --help
-    - metawibele_interproscan_phobius_protein_family --help
-    - metawibele_interproscan_protein --help
-    - metawibele_interproscan_protein_family --help
-    - metawibele_interproscan_signalp_protein_family --help
-    - metawibele_interproscan_tmhmm_protein_family --help
-    - metawibele_maaslin2 --help
-    - metawibele_maaslin2_annotator --help
-    - metawibele_maaslin2_collection --help
-    - metawibele_maaslin2_summary --help
-    - metawibele_metadata_format --help
-    - metawibele_msp_protein_family --help
-    - metawibele_mspminer_msp --help
-    - metawibele_mspminer_msp_taxonomy_annotation --help
-    - metawibele_mspminer_msp_uniref_annotation --help
-    - metawibele_mspminer_protein --help
-    - metawibele_mspminer_protein_family --help
-    - metawibele_mspminer_protein_family_taxonomy --help
-    - metawibele_pfam2go --help
-    - metawibele_psortb_annotator --help
-    - metawibele_psortb_protein --help
-    - metawibele_psortb_protein_family --help
-    - metawibele_sum_to_protein_family_abundance --help
-    - metawibele_sum_to_protein_family_stratified_abundance --help
-    - metawibele_summary_all_annotation --help
-    - metawibele_summary_function_annotation --help
-    - metawibele_summary_protein_family_uniref_annotation --help
-    - metawibele_summary_protein_uniref_annotation --help
-    - metawibele_uniref_annotator --help
-    - metawibele_uniref_annotator_stat --help
-    - metawibele_uniref_protein --help
-    - metawibele_uniref_protein_family --help
-    - metawibele_cluster_prioritization --help
-    - metawibele_filter_prioritization --help
-    - metawibele_finalize_prioritization --help
-    - metawibele_quantify_prioritization --help
-    - metawibele_combine_gene_sequences --help
-    - metawibele_extract_cluster --help
-    - metawibele_extract_complete_ORF_seq --help
-    - metawibele_extract_non_redundance_seq --help
-    - metawibele_extract_protein_coding_genes --help
-    - metawibele_format_contig_sequences --help
-    - metawibele_format_protein_sequences --help
-    - metawibele_gene_abundance --help
-    - metawibele_gene_abundance_indexRef --help
-    - metawibele_gene_catalog_abundance --help
-    - metawibele_abundance_RPK --help
-    - metawibele_abundance_RPK_gene --help
-    - metawibele_abundance_filtering --help
-    - metawibele_abundance_normalization --help
-    - metawibele_abundance_smoothing --help
-    - metawibele_combine_abundance_annotation --help
-    - metawibele_extract_abundance_feature_subset --help
-    - metawibele_extract_abundance_sample_subset --help
-    - metawibele_filter_clusters --help
-    - metawibele_filter_prevalence --help
-    - metawibele_join_family_abundance --help
-    - metawibele_split_family_abundance --help
-    - metawibele_transpose --help
-    - metawibele_split_fasta_file --help
-    - metawibele_download_config --help
-    - metawibele_prepare_uniprot_taxonomy --help
-    - metawibele_prepare_uniprot_annotation --help
-    - metawibele_prepare_uniref_annotation --help
-    - metawibele_prepare_domain_databases --help
-    - metawibele_extract_uniref_maps --help
 
 about:
   home: "http://huttenhower.sph.harvard.edu/MetaWIBELE"

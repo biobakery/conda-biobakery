@@ -1,6 +1,6 @@
 {% set name = "humann" %}
-{% set version = "3.0.0.alpha.2" %}
-{% set pypi_filename = "humann-3.0.0a2" %}
+{% set version = "3.0.0.alpha.3" %}
+{% set pypi_filename = "humann-3.0.0a3" %}
 
 package:
   name: "{{ name|lower }}"
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ pypi_filename }}.tar.gz
-  sha256: 85d8da2f98d37f7d608a87f53f700da4756ac2317afec257c6303d0cd81c6eae
+  sha256: d9e537513350d6fcd0bb55559623e1651f90f93733433db90da654ef5ba00aa1
 
 build:
   number: 0

@@ -1,18 +1,17 @@
 {% set name = "hclust2" %}
-{% set version = "1.0.0_3d589ab" %}
+{% set version = "1.0.0" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "bd3ac7e24cf47eb2e1ee46f4165987cfee2c542babcadc705aee8da3bca33438" %}
+{% set hash_value = "d2fc4033b27afb1b718834c33c05011f203839545a4da8792db2aaf87f75fe8f" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: 3d589ab2cb68.tar.gz
-  url: https://bitbucket.org/nsegata/hclust2/get/3d589ab2cb68.tar.gz
-  '{{ hash_type }}': '{{ hash_value }}'
+  url: https://github.com/SegataLab/hclust2/archive/1.0.0.tar.gz
 
 build:
+  noarch: python
   number: 0
 
 requirements:
@@ -23,7 +22,7 @@ requirements:
     - python
     - numpy
     - scipy
-    - matplotlib<2.0.0
+    - matplotlib <2.0.0
     - pandas
     - biopython
     - pyqi

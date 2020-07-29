@@ -10,6 +10,7 @@ source:
   sha256: 4b6c0bc3a001d849ec3fc5231b0a2af5dd718897b70f839e6435e6f1b6809c62
 
 build:
+  noarch: python
   number: 0
   entry_points:
     - metawibele = metawibele.metawibele:main

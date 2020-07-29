@@ -10,6 +10,7 @@ source:
   sha256: f2932c63f34d82124dce7980d505c06e242ec4b44420afa5526a84813c94aaff
 
 build:
+  noarch: python
   number: 0
   entry_points:
     - waafle_search = waafle.waafle_search:main
@@ -17,7 +18,7 @@ build:
     - waafle_orgscorer = waafle.waafle_orgscorer:main
     - waafle_junctions = waafle.waafle_junctions:main
     - waafle_qc = waafle.waafle_qc:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: "python -m pip install . --no-deps --ignore-installed -vv "
 
 requirements:
   host:

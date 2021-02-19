@@ -1,7 +1,7 @@
 {% set name = "biobakery_workflows" %}
-{% set version = "3.0.0a4" %}
+{% set version = "3.0.0a7" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "bfd73d442ed99402e61f87774b123746b6a3161574997654cdceb4bd258a5518" %}
+{% set hash_value = "8819d6a110d01005d5c855a5f6a906b0a6b75e33d20b96471ae41c5ab354203f" %}
 
 package:
   name: '{{ name|lower }}'

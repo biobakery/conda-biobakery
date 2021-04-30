@@ -104,6 +104,7 @@ requirements:
     - pandas
     - scipy
     - anadama2
+    - leveldb <=0.193
     - cd-hit
     - diamond
 

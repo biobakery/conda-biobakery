@@ -1,15 +1,15 @@
 {% set name = "lefse" %}
-{% set version = "1.0.0_dev_9adc3a62460e" %}
+{% set version = "1.1.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "9d64aac0fdfd482639a4df21fdda921aace65ce23ad61afea624138a13cea8e2" %}
+{% set hash_value = "26f2f9d3e5ee44e588fab4d58bffcb811d6bdab39b6c7d0ae5a406bcde24e663" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: '9adc3a62460e.tar.gz'
-  url: 'https://bitbucket.org/ljmciver/lefse/get/9adc3a62460e.tar.gz'
+  url: https://github.com/SegataLab/lefse/archive/refs/tags/1.1.1.tar.gz
+  sha256: 26f2f9d3e5ee44e588fab4d58bffcb811d6bdab39b6c7d0ae5a406bcde24e663
 
 build:
   number: 0
@@ -20,11 +20,11 @@ build:
 
 requirements:
   build:
-    - python
+    - python >=3.7
     - setuptools
     - r-base
   run:
-    - python
+    - python >=3.7
     - r-base
     - numpy
     - matplotlib
@@ -48,4 +48,4 @@ about:
   doc_url: http://huttenhower.sph.harvard.edu/lefse
 
 extra:
-  recipe-maintainers: 'biobakery-users@googlegroups.com'
+  recipe-maintainers: 'https://forum.biobakery.org/c/downstream-analysis-and-statistics/lefse/9'

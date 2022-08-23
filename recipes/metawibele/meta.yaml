@@ -1,5 +1,5 @@
 {% set name = "metawibele" %}
-{% set version = "0.4.4" %}
+{% set version = "0.4.5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 67c86605cc3f34249d33d3eb9fea35bdeb94b562b2be1d3c2c047b0945214d14
+  sha256: 5a4845e13300932fd3351f81ee53d38b925b78d74122a36c6579bba4516f85db
 
 build:
   noarch: python

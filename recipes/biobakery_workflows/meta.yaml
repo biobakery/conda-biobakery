@@ -1,7 +1,7 @@
 {% set name = "biobakery_workflows" %}
-{% set version = "3.0.0a7" %}
+{% set version = "3.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "8819d6a110d01005d5c855a5f6a906b0a6b75e33d20b96471ae41c5ab354203f" %}
+{% set hash_value = "c11a00192aa0bd6a6978eabef768c483dd240281991ce2a31bfaf291fe3d0e2b" %}
 
 package:
   name: '{{ name|lower }}'
@@ -28,7 +28,7 @@ requirements:
   run:
     - python
     - anadama2
-    - kneaddata
+    - kneaddata >=0.12.0
     - humann
 
 test:

@@ -1,0 +1,53 @@
+{% set name = "parathaa" %}
+{% set version = "0.1.0" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "30a0fc61710446d1f528581b3198c53d2053bc544502801b44c390b99eb7fb48" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  entry_points:
+    - parathaa_run_tree_analysis = parathaa.run_tree_analysis:main
+    - parathaa_run_taxa_assignment = parathaa.run_taxa_assignment:main
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+    - numpy
+    - r-base=4.2.3
+    - r-openssl
+    - anadama2
+    - mothur
+    - taxtastic
+    - fasttree
+    - sepp
+
+test:
+  imports:
+    - parathaa
+    - parathaa.utility
+  commands:
+    - parathaa_run_tree_analysis --help
+    - parathaa_run_taxa_assignment --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/parathaa
+  license: MIT
+  license_family: MIT
+  summary: PARATHAA(Preserving and Assimilating Region-specific Ambiguities in Taxonomic Hierarchical Assignments for Amplicons) is a tool used for the taxonomic assignment of 16S rRNA gene sequences that takes into account the uncertainty associated with using specific variable regions/primers.
+  description: PARATHAA(Preserving and Assimilating Region-specific Ambiguities in Taxonomic Hierarchical Assignments for Amplicons) is a tool used for the taxonomic assignment of 16S rRNA gene sequences that takes into account the uncertainty associated with using specific variable regions/primers.
+  doc_url: http://huttenhower.sph.harvard.edu/parathaa
+
+extra:
+  recipe-maintainers: https://forum.biobakery.org/c/downstream-analysis-and-statistics/parathaa

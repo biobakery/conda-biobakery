@@ -14,6 +14,10 @@ source:
 
 build:
   number: 0
+  # This is required to make R link correctly on Linux.
+  rpaths:
+    - lib/R/lib/
+    - lib/
   entry_points:
     - parathaa_run_tree_analysis = parathaa.run_tree_analysis:main
     - parathaa_run_taxa_assignment = parathaa.run_taxa_assignment:main
@@ -21,17 +25,45 @@ build:
 
 requirements:
   build:
-    - python
-  run:
-    - python
-    - numpy
     - r-base=4.2.3
+    - r-ape
+    - r-castor
+    - r-stringr
+    - r-docopt
+    - r-tidytree
+    - r-dplyr
+    - r-phytools
+    - r-dosnow
+    - r-tidyr
+    - r-tdbook
+    - r-ggplot2
+    - r-reshape2
+    - bioconductor-ggtree
+    - bioconductor-treeio
     - r-openssl
+    - python >=3
+    - numpy
     - anadama2
-    - mothur
-    - taxtastic
-    - fasttree
-    - sepp
+  run:
+    - r-base=4.2.3
+    - r-ape
+    - r-castor
+    - r-stringr
+    - r-docopt
+    - r-tidytree
+    - r-dplyr
+    - r-phytools
+    - r-dosnow
+    - r-tidyr
+    - r-tdbook
+    - r-ggplot2
+    - r-reshape2
+    - bioconductor-ggtree
+    - bioconductor-treeio
+    - r-openssl
+    - python >=3
+    - numpy
+    - anadama2
 
 test:
   imports:

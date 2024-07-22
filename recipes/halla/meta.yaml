@@ -1,7 +1,7 @@
 {% set name = "halla" %}
-{% set version = "0.8.17" %}
+{% set version = "0.8.40" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "b20f018a2ae91a45169c563b9032f964347144949cfbe465f2545dfe25cec8e1" %}
+{% set hash_value = "eabf0d5e73e41801162ca3ac73ff0bb3cf374765a9e56fae0dfb94dc06d5a334" %}
 
 package:
   name: '{{ name|lower }}'
@@ -28,13 +28,17 @@ requirements:
 
   run:
     - python
-    - numpy >=1.9.2
-    - scipy >=0.17.0
-    - matplotlib >=1.5.1,<2.0.0
-    - scikit-learn >=0.14.1
-    - minepy >=1.0.0
-    - pandas >=0.18.1
-    - jenkspy >=0.1.4
+    - jenkspy>=0.1.5
+    - matplotlib>=3.5.3
+    - numpy>=1.19.0
+    - pandas>=1.0.5
+    - PyYAML>=5.4
+    - rpy2>=3.3.5
+    - scikit-learn>=0.23.1
+    - scipy>=1.5.1
+    - seaborn>=0.10.1
+    - statsmodels>=0.11.1
+    - tqdm>=4.50.2
 
 test:
   imports:

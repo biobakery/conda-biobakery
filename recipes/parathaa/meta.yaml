@@ -1,7 +1,7 @@
 {% set name = "parathaa" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "30a0fc61710446d1f528581b3198c53d2053bc544502801b44c390b99eb7fb48" %}
+{% set hash_value = "b2dad3013578b1e800e7254c277089ac97a3a54323d8abc06ca492aa25f4b598" %}
 
 package:
   name: '{{ name|lower }}'

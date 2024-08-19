@@ -1,7 +1,7 @@
 {% set name = "parathaa" %}
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "30a0fc61710446d1f528581b3198c53d2053bc544502801b44c390b99eb7fb48" %}
+{% set hash_value = "b2dad3013578b1e800e7254c277089ac97a3a54323d8abc06ca492aa25f4b598" %}
 
 package:
   name: '{{ name|lower }}'
@@ -25,7 +25,7 @@ build:
 
 requirements:
   build:
-    - r-base=4.2.3
+    - r-base=4.*.*
     - r-ape
     - r-castor
     - r-stringr
@@ -35,17 +35,18 @@ requirements:
     - r-phytools
     - r-dosnow
     - r-tidyr
-    - r-tdbook
+    - r-TDbook
     - r-ggplot2
     - r-reshape2
     - bioconductor-ggtree
-    - bioconductor-treeio
+    - bioconductor-treeio=1.22.0
     - r-openssl
     - python >=3
     - numpy
     - anadama2
+    
   run:
-    - r-base=4.2.3
+    - r-base=4.*.*
     - r-ape
     - r-castor
     - r-stringr
@@ -59,7 +60,7 @@ requirements:
     - r-ggplot2
     - r-reshape2
     - bioconductor-ggtree
-    - bioconductor-treeio
+    - bioconductor-treeio=1.22.0
     - r-openssl
     - python >=3
     - numpy
@@ -71,7 +72,7 @@ test:
     - parathaa.utility
   commands:
     - parathaa_run_tree_analysis --help
-    - parathaa_run_taxa_assignment --help
+    - parathaa_run_taxa_assignment 
 
 about:
   home: http://huttenhower.sph.harvard.edu/parathaa

@@ -1,0 +1,92 @@
+{% set name = "fugassem" %}
+{% set version = "0.3.6" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "7c2d62906dc775ef483df8129544db53456331561f7d3023007c565c30aa66c1" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  number: 0
+  entry_points:
+    - fugassem = fugassem.fugassem:main
+    - fugassem_process = fugassem.tasks.fugassem_process:main
+    - fugassem_calculate_correlation = fugassem.preprocess.calculate_correlation:main
+    - fugassem_collect_features = fugassem.preprocess.collect_features:main
+    - fugassem_convert_DDI = fugassem.preprocess.convert_DDI:main
+    - fugassem_convert_coann = fugassem.preprocess.convert_coann:main
+    - fugassem_impute_nan = fugassem.preprocess.impute_nan:main
+    - fugassem_refine_abunds = fugassem.preprocess.refine_abunds:main
+    - fugassem_refine_anns = fugassem.preprocess.refine_anns:main
+    - fugassem_split_taxa = fugassem.preprocess.split_taxa:main
+    - fugassem_build_union_terms = fugassem.preprocess.build_union_terms:main
+    - fugassem_collect_ml_results = fugassem.predict.collect_ml_results:main
+    - fugassem_machine_learning= fugassem.predict.machine_learning:main
+    - fugassem_predict_function = fugassem.predict.predict_function:main
+    - fugassem_prepare_nextlayer_ml = fugassem.predict.prepare_nextlayer_ml:main
+    - fugassem_select_feature = fugassem.predict.select_feature:main
+    - fugassem_merged_prediction = fugassem.predict.merged_prediction:main
+    - fugassem_generate_stratified_mtx_input = fugassem.tools.generate_stratified_mtx_input:main
+    - fugassem_generate_annotation_input= fugassem.tools.generate_annotation_input:main
+    - fugassem_abundance_RPK = fugassem.tools.abundance_RPK:main
+    - fugassem_abundance_normalization = fugassem.tools.abundance_normalization:main
+    - fugassem_abundance_smoothing = fugassem.tools.abundance_smoothing:main
+    - fugassem_collect_seqSimilarity_results = fugassem.tools.collect_seqSimilarity_results:main
+    - fugassem_gene_abundance = fugassem.tools.gene_abundance:main
+    - fugassem_gene_abundance_indexRef = fugassem.tools.gene_abundance_indexRef:main
+    - fugassem_gene_catalog_abundance = fugassem.tools.gene_catalog_abundance:main
+    - fugassem_prepare_annotation = fugassem.tools.prepare_annotation:main
+    - fugassem_prepare_contig = fugassem.tools.prepare_contig:main
+    - fugassem_prepare_seqSimilarity = fugassem.tools.prepare_seqSimilarity:main
+    - fugassem_prepare_coann_pairs = fugassem.tools.prepare_coann_pairs:main
+    - fugassem_stratified_abundance = fugassem.tools.stratified_abundance:main
+    - fugassem_sum_to_family_abundance = fugassem.tools.sum_to_family_abundance:main
+    - fugassem_performance_vis = fugassem.tools.performance_vis:main
+    - fugassem_extract_feature_subset = fugassem.common.extract_feature_subset:main
+    - fugassem_format_function = fugassem.common.format_function:main
+    - fugassem_geneontology = fugassem.common.geneontology:main
+    - fugassem_transpose = fugassem.common.transpose:main
+
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python >=3
+    - numpy
+    - anadama2
+    
+  run:
+    - python >=3
+    - numpy
+    - anadama2
+
+test:
+  imports:
+    - fugassem
+    - fugassem.tools
+    - fugassem.tasks
+    - fugassem.preprocess
+    - fugassem.predict
+    - fugassem.data.GO
+    - fugassem.common
+
+
+  commands:
+    - fugassem --help
+
+about:
+  home: http://huttenhower.sph.harvard.edu/fugassem
+  license: MIT
+  license_family: MIT
+  summary: FUGAsseM (Function predictor of Uncharacterized Gene products by Assessing high-dimensional community data in Microbiomes) is a computational tool based on a “guilt by association” approach to predict functions of novel gene products in the context of microbial communities. It uses machine learning methods to predict functions of microbial proteins by integrating multiple types of community-wide data.
+  description: FUGAsseM (Function predictor of Uncharacterized Gene products by Assessing high-dimensional community data in Microbiomes) is a computational tool based on a “guilt by association” approach to predict functions of novel gene products in the context of microbial communities. It uses machine learning methods to predict functions of microbial proteins by integrating multiple types of community-wide data.
+  doc_url: http://huttenhower.sph.harvard.edu/fugassem
+
+extra:
+  recipe-maintainers: https://forum.biobakery.org/c/downstream-analysis-and-statistics/fugassem

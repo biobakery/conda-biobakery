@@ -14,20 +14,23 @@ source:
 
 build:
   number: 0
+  rpaths:
+    - lib/R/lib/
+    - lib/
   entry_points:
-    - halla = halla.halla:main
-    - hallagram = halla.hallagram:main
-    - halladata = halla.synthetic_data:main
-    - hallascatter = halla.hallascatter:main
+    - halla = scripts.halla:main
+    - hallagram = scripts.hallagram:main
+    - halladata = scripts.synthetic_data:main
+    - hallagnostic = scripts.diagnostic_plot:main
   script: python setup.py install  --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
-    - python
+    - python=3.8
     - setuptools
 
   run:
-    - python
+    - python=3.8
     - jenkspy>=0.1.5
     - matplotlib>=3.5.3
     - numpy>=1.19.0
@@ -39,16 +42,20 @@ requirements:
     - seaborn>=0.10.1
     - statsmodels>=0.11.1
     - tqdm>=4.50.2
+    - r-base=4.*.*
+    - r-xicor
+    - r-eva
 
 test:
   imports:
     - halla
-    - halla.tests
+    - scripts
+
   commands:
     - halla --help
     - hallagram --help
     - halladata --help
-    - hallascatter --help
+    - hallagnostic --help
 
 about:
   home: http://huttenhower.sph.harvard.edu/halla
@@ -59,4 +66,4 @@ about:
   doc_url: http://huttenhower.sph.harvard.edu/halla
 
 extra:
-  recipe-maintainers: 'halla-users@googlegroups.com'
+  recipe-maintainers: 'https://forum.biobakery.org/c/downstream-analysis-and-statistics/halla/'

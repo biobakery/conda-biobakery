@@ -1,5 +1,5 @@
 {% set name = "metawibele" %}
-{% set version = "0.4.7" %}
+{% set version = "0.4.8" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 4923dae5d63ee67bbdd5a85fc0831cdb37cd40b0c18ffd9c756db59af434aa30
+  sha256: d54c1b97568d688ba785713078913d0bd4ff0588363369c79ca2601fc733179a
 
 build:
   noarch: python
@@ -104,7 +104,7 @@ requirements:
     - pandas
     - scipy
     - anadama2
-    - leveldb <=0.193
+    # - leveldb <=0.193
     - cd-hit
     - diamond
 

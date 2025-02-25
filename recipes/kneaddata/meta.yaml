@@ -1,7 +1,7 @@
 {% set name = "kneaddata" %}
-{% set version = "0.12.1" %}
+{% set version = "0.12.2" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "ec83c521816814b6ea09b9a1dc76bd428fb53a436716e5edfc87943e451a7751" %}
+{% set hash_value = "1fbbe10ac6b307f69df8e592ce039d081fedd7749ad11ac2f6920989a62a7e3e" %}
 
 package:
   name: '{{ name|lower }}'

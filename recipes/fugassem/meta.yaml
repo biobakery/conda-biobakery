@@ -60,12 +60,12 @@ requirements:
     - python >=3
     - numpy
     - anadama2
-    
+    - python-leveldb    
   run:
     - python >=3
     - numpy
     - anadama2
-
+    - python-leveldb
 test:
   imports:
     - fugassem

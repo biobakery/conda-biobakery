@@ -61,11 +61,27 @@ requirements:
     - numpy
     - anadama2
     - python-leveldb    
+    - pandas
+    - multiprocessing
+    - scikit-learn
+    - scipy
+    - matplotlib
+    - goatools
+    - statistics
+    - typing
   run:
     - python >=3
     - numpy
     - anadama2
     - python-leveldb
+    - pandas
+    - multiprocessing
+    - scikit-learn
+    - scipy
+    - matplotlib
+    - goatools
+    - statistics
+    - typing
 test:
   imports:
     - fugassem

@@ -1,7 +1,7 @@
 {% set name = "fugassem" %}
-{% set version = "0.3.7" %}
+{% set version = "0.3.8" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "b50896f1750fe2030814f9eb09abe54b4cc55ef2623483229a450289a8be061b" %}
+{% set hash_value = "ca97111e2990c1b85a63700b9d14ee58efdc62e09d5033b0dffb6000f40524b8" %}
 
 package:
   name: '{{ name|lower }}'

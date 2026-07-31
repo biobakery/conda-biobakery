@@ -1,7 +1,7 @@
 {% set name = "kneaddata" %}
-{% set version = "0.12.2" %}
+{% set version = "0.12.4" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "1fbbe10ac6b307f69df8e592ce039d081fedd7749ad11ac2f6920989a62a7e3e" %}
+{% set hash_value = "f95811aeb7c4a74250ce3f62879676f4e3c970f20dad2d5f9628250a9c45a6c3" %}
 
 package:
   name: '{{ name|lower }}'
@@ -17,6 +17,7 @@ build:
   entry_points:
     - kneaddata = kneaddata.knead_data:main
     - kneaddata_bowtie2_discordant_pairs = kneaddata.bowtie2_discordant_pairs:main
+    - kneaddata_trf_parallel = kneaddata.trf_parallel:main
     - kneaddata_database = kneaddata.download_db:main
     - kneaddata_build_database = kneaddata.generate_db:main
     - kneaddata_read_count_table = kneaddata.read_count_table:main
@@ -25,16 +26,23 @@ build:
 
 requirements:
   build:
-    - python >=3
-    - setuptools
+    # Bare "python" (not "python >=3") so conda-build's --python/CONDA_PY
+    # variant actually pins the interpreter. With a version constraint here
+    # conda-build ignores --python and silently builds against newest python.
+    - python
+    # setuptools 80 removed the "setup.py install" command that this recipe and
+    # kneaddata's custom Install cmdclass (bundles trimmomatic/trf) rely on.
+    - setuptools <80
+    # bowtie2 is a build dep only so setup.py finds it on PATH and skips
+    # downloading its own copy into bin/.
     - bowtie2 >=2.2
   run:
-    - python >=3
+    - python
     - trf
     - bowtie2 >=2.2
     - fastqc
     - samtools
-    - java-jdk
+    - openjdk >=8
 
 test:
   imports:
@@ -44,6 +52,7 @@ test:
   commands:
     - kneaddata --help
     - kneaddata_bowtie2_discordant_pairs --help
+    - kneaddata_trf_parallel --help
     - kneaddata_database --help
     - kneaddata_build_database --help
     - kneaddata_read_count_table --help
@@ -54,8 +63,9 @@ about:
   license: MIT
   license_family: MIT
   summary: KneadData is a tool designed to perform quality control on metagenomic sequencing data, especially data from microbiome experiments.
-  description: KneadData is a tool designed to perform quality control on metagenomic sequencing data, especially data from microbiome experiments. In these experiments, samples are typically taken from a host in hopes of learning something about the microbial community on the host. However, metagenomic sequencing data from such experiments will often contain a high ratio of host to bacterial reads. This tool aims to perform principled in silico separation of bacterial reads from these "contaminant" reads, be they from the host, from bacterial 16S sequences, or other user-defined sources.
+  description: KneadData is a tool designed to perform quality control on metagenomic sequencing data, especially data from microbiome experiments. In these experiments, samples are typically taken from a host in hopes of learning something about the microbial community on the host. However, metagenomic sequencing data from such experiments will often contain a high ratio of host to bacterial reads. This tool aims to perform principled in silico separation of b$
   doc_url: http://huttenhower.sph.harvard.edu/kneaddata
 
 extra:
-  recipe-maintainers: kneaddata-users@googlegroups.com
+  recipe-maintainers:
+    - kneaddata-users@googlegroups.com

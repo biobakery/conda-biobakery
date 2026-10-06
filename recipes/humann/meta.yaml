@@ -44,9 +44,11 @@ requirements:
     - python
   run:
     - python
-    # HUMAnN 4.0.0a1 calls MetaPhlAn with --bowtie2out (removed in 4.2) and
-    # requires the mpa_vOct22_CHOCOPhlAnSGB_202403 database.
-    - metaphlan >=4.1.0,<4.2.0
+    # HUMAnN 4.0.0a1 calls MetaPhlAn with --bowtie2out (removed in 4.2),
+    # requires the mpa_vOct22_CHOCOPhlAnSGB_202403 database, and reads the
+    # MetaPhlAn version from the last line of `metaphlan --version`, which
+    # 4.1.2 breaks by printing a database-status line after it.
+    - metaphlan 4.1.1
     - bowtie2
     - diamond
     - glpk

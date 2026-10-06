@@ -11,7 +11,7 @@ source:
   sha256: 834cbd402fc499217e5066f94bbb3991d91a62520e4ca6399d6e8a997ae5f9da
 
 build:
-  number: 0
+  number: 1
   noarch: python
   entry_points:
     - humann = humann.humann:main
@@ -44,7 +44,11 @@ requirements:
     - python
   run:
     - python
-    - metaphlan
+    # HUMAnN 4.0.0a1 calls MetaPhlAn with --bowtie2out (removed in 4.2),
+    # requires the mpa_vOct22_CHOCOPhlAnSGB_202403 database, and reads the
+    # MetaPhlAn version from the last line of `metaphlan --version`, which
+    # 4.1.2 breaks by printing a database-status line after it.
+    - metaphlan 4.1.1
     - bowtie2
     - diamond
     - glpk
